@@ -1,0 +1,56 @@
+# ─────────────────────────────
+# Go
+# ─────────────────────────────
+# Binarios compilados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Archivos de test compilados
+*.test
+
+# Archivos de build
+*.out
+
+# Carpeta bin si llegas a compilar allí
+/bin/
+/dist/
+/build/
+
+# Cache de Go
+/go.sum
+/go.work
+/go.work.sum
+
+# ─────────────────────────────
+# VSCode / IDEs
+# ─────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de Mac
+.DS_Store
+
+# Archivos de Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ─────────────────────────────
+# Configuración / env
+# ─────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─────────────────────────────
+# Logs / temporales
+# ─────────────────────────────
+*.log
+*.tmp
+*.bak
+*.local
