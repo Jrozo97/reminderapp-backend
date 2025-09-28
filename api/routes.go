@@ -20,4 +20,5 @@ func RegisterRoutes(r *gin.Engine) {
 	userHandler := handler.NewUserHandler(userService)
 
 	r.POST("/register", userHandler.Register)
+	r.POST("/login", userHandler.Login)
 }
