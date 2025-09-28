@@ -12,8 +12,6 @@ func RegisterRoutes(r *gin.Engine) {
 		c.JSON(200, gin.H{"message": "pong"})
 	})
 
-	//Ro
-
 	// users
 	userRepo := repository.NewUserRepository()
 	userService := service.NewUserService(userRepo)

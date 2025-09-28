@@ -28,7 +28,10 @@ func (s *UserService) Register(ctx context.Context, name, email, password string
 	}
 
 	// encriptar password
-	hashed, _ := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	hashed, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		return errors.New("error al encriptar la contraseña")
+	}
 
 	user := &domain.User{
 		Name:     name,

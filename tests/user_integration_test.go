@@ -10,6 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Jrozo97/reminderapp-backend/api"
 	"github.com/Jrozo97/reminderapp-backend/internal/config"
@@ -44,7 +45,8 @@ func TestRegisterAndLogin(t *testing.T) {
 		"email":    "integration@example.com",
 		"password": "password123",
 	}
-	body, _ := json.Marshal(registerPayload)
+	body, err := json.Marshal(registerPayload)
+	require.NoError(t, err)
 
 	req, _ := http.NewRequest("POST", "/register", bytes.NewBuffer(body))
 	req.Header.Set("Content-Type", "application/json")
@@ -61,7 +63,9 @@ func TestRegisterAndLogin(t *testing.T) {
 		"email":    "integration@example.com",
 		"password": "password123",
 	}
-	body, _ = json.Marshal(loginPayload)
+
+	body, errLogin := json.Marshal(loginPayload)
+	require.NoError(t, errLogin)
 
 	req, _ = http.NewRequest("POST", "/login", bytes.NewBuffer(body))
 	req.Header.Set("Content-Type", "application/json")
