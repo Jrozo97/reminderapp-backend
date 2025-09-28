@@ -11,6 +11,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+type UserRepositoryInterface interface {
+	CreateUser(ctx context.Context, user *domain.User) error
+	FindByEmail(ctx context.Context, email string) (*domain.User, error)
+}
+
 type UserRepository struct {
 	collection *mongo.Collection
 }
